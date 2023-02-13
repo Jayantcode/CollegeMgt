@@ -39,15 +39,6 @@ class AdminHOD(models.Model):
 	objects = models.Manager()
 
 
-class Staffs(models.Model):
-	id = models.AutoField(primary_key=True)
-	admin = models.OneToOneField(CustomUser, on_delete = models.CASCADE)
-	address = models.TextField()
-	created_at = models.DateTimeField(auto_now_add=True)
-	updated_at = models.DateTimeField(auto_now=True)
-	objects = models.Manager()
-
-
 
 class Courses(models.Model):
 	id = models.AutoField(primary_key=True)
@@ -146,36 +137,6 @@ class FeedBackStaffs(models.Model):
 	staff_id = models.ForeignKey(Staffs, on_delete=models.CASCADE)
 	feedback = models.TextField()
 	feedback_reply = models.TextField()
-	created_at = models.DateTimeField(auto_now_add=True)
-	updated_at = models.DateTimeField(auto_now=True)
-	objects = models.Manager()
-
-
-
-class NotificationStudent(models.Model):
-	id = models.AutoField(primary_key=True)
-	student_id = models.ForeignKey(Students, on_delete=models.CASCADE)
-	message = models.TextField()
-	created_at = models.DateTimeField(auto_now_add=True)
-	updated_at = models.DateTimeField(auto_now=True)
-	objects = models.Manager()
-
-
-class NotificationStaffs(models.Model):
-	id = models.AutoField(primary_key=True)
-	stafff_id = models.ForeignKey(Staffs, on_delete=models.CASCADE)
-	message = models.TextField()
-	created_at = models.DateTimeField(auto_now_add=True)
-	updated_at = models.DateTimeField(auto_now=True)
-	objects = models.Manager()
-
-
-class StudentResult(models.Model):
-	id = models.AutoField(primary_key=True)
-	student_id = models.ForeignKey(Students, on_delete=models.CASCADE)
-	subject_id = models.ForeignKey(Subjects, on_delete=models.CASCADE, default=1)
-	subject_exam_marks = models.FloatField(default=0)
-	subject_assignment_marks = models.FloatField(default=0)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	objects = models.Manager()
